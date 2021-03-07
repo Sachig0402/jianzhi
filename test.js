@@ -4,3 +4,6 @@ let result = a.every((x) => { return x < 10 })
 
 console.log(a)
 console.log(result)
+
+let b = parseInt(4.7)
+console.log(b)
