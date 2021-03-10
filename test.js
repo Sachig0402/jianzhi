@@ -7,3 +7,5 @@ console.log(result)
 
 let b = parseInt(4.7)
 console.log(b)
+
+console.log(5 / 2)
