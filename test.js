@@ -9,3 +9,7 @@ let b = parseInt(4.7)
 console.log(b)
 
 console.log(5 / 2)
+
+let a1 = '1234'
+console.log(a1[3])
+console.log(typeof (a1[3]))
