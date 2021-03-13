@@ -26,3 +26,32 @@ var movingCount = function (m, n, k) {
     };
     return set.size
 }
+
+
+// 我写的 不知道哪里错了
+var movingCount = function (m, n, k) {
+    function sumCal(a) {
+        let sum = 0
+        while (a) {
+            sum += a % 10
+            a = parseInt(a / 10)
+        }
+        return sum
+    }
+
+    let aSet = new Set()
+    let queue = [[0, 0]]
+    while (queue.length) {
+        let [i, j] = queue.shift()
+        if (i < 0 || i >= m || j < 0 || j > n || (sumCal(i) + sumCal(j) > k)) {
+            continue
+        }
+        if ((i >= 0 && i < m && j >= 0 && j < n) && (sumCal(i) + sumCal(j) <= k)) {
+            // else {
+            aSet.add(`${i},${j}`)
+            queue.push([i + 1, j], [i, j + 1])
+        }
+
+    }
+    return aSet.size
+}

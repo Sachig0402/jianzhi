@@ -1,3 +1,16 @@
+/**
+ * Definition for a binary tree node.
+ * function TreeNode(val) {
+ *     this.val = val;
+ *     this.left = this.right = null;
+ * }
+ */
+/**
+ * @param {number[]} preorder
+ * @param {number[]} inorder
+ * @return {TreeNode}
+ */
+// !法一 递归法
 var buildTree = function (preorder, inorder) {
     if (!preorder.length || !inorder.length) {
         return null;
@@ -17,3 +30,5 @@ var buildTree = function (preorder, inorder) {
     node.right = buildTree(preorder.slice(i + 1), inorder.slice(i + 1));
     return node;
 };
+
+// ! 法二迭代法没看懂

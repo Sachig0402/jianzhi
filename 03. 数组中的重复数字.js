@@ -13,9 +13,9 @@ var findRepeatNumber = function (nums) {
 var findRepeatNumber = function (nums) {
     let s = new Set();
 
-    for (let in nums) {
+    for (let i in nums) {//for in循环遍历的是下标0,1,2,3
         // let l=s.size;
-        s.add(nums[[i]]);
+        s.add(nums[i]);
         if (s.size == i) {// 或者 if(s.size==l)
             return nums[i];
         }

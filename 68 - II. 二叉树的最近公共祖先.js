@@ -16,7 +16,7 @@ function TreeNode(val) {
     this.val = val;
     this.left = this.right = null;
 }
-
+// 法一 我想到的,用map存各个节点的中序遍历位置,转化为上一题的思路
 var lowestCommonAncestor = function (root, p, q) {
     if (!root) return null
     let aMap = new Map()
@@ -46,6 +46,30 @@ var lowestCommonAncestor = function (root, p, q) {
         }
     }
 };
+
+
+// 法二 递归 别人的思路
+var lowestCommonAncestor = function (root, p, q) {
+    if (!root || root == p || root == q) { //如果根节点为空,或根节点为要查找的p或q,就直接返回
+        return root
+    }
+    let left = lowestCommonAncestor(root.left, p, q), right = lowestCommonAncestor(root.right, p, q)
+    
+    return left && right ? root : left || right
+    // * 若左右子树都查到了,就返回这个根节点,若不是全查到了,左子树若查到了,就返回左子树返回的值,若左子树没查到,就返回右子树返回的值,当然也可能都没查到,left||right为null
+
+    /* 
+    ! 也可以写下面这种格式,意思是一样的
+     * 分别向左右查找,查找到p或q节点就返回,传给上层
+    if (!left) return right
+    * 如果左子树没有,就返回右子树查找到的节点(当然右子树可能也没有,返回的是null,这样给上层节点的也是null)
+    if (!right) return left
+    * 同理
+    return root
+    */
+    
+};
+
 
 let a = new TreeNode(3)
 let b = new TreeNode(5)
