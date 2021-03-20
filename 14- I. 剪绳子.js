@@ -12,4 +12,31 @@ var cuttingRope = function (n) {
 
 cuttingRope(120)
 
-// 贪心算法
+// !贪心算法
+var cuttingRope = function (n) {
+    if (n == 2) return 1
+    if (n == 3) return 2
+    let a = n % 3, b = Math.floor(n / 3)
+    if (a == 0) {
+        m = Math.pow(3, b)
+    } else if (a == 1) {
+        m = Math.pow(3, b - 1) * 4
+    } else if (a == 2) {
+        m = Math.pow(3, b) * 2
+    }
+    return m
+};
+
+// ! 上面这种方法更好 这两个都是贪心算法
+
+var cuttingRope = function (n) {
+    let arr = [0, 0, 1, 2, 4];
+    if (n < 5) return arr[n];
+    const max = 1e9 + 7;
+    let res = 1;
+    while (n >= 5) {
+        res = res % max * 3;
+        n = n - 3;
+    }
+    return res * n % max;
+}

@@ -16,3 +16,10 @@
 
 // let testa = [1, 2, [3, 4]]
 // console.log(testa.flat(Infinity))
+
+
+let a = new Set([[1, 2]])
+/* a.add([3, 4])
+a.add([5, 6]) */
+a.add([1, 2])
+console.log(a)
