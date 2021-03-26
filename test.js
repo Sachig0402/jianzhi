@@ -18,8 +18,11 @@
 // console.log(testa.flat(Infinity))
 
 
-let a = new Set([[1, 2]])
+// let a = new Set([[1, 2]])
 /* a.add([3, 4])
 a.add([5, 6]) */
-a.add([1, 2])
-console.log(a)
+// a.add([1, 2])
+// console.log(a)
+
+var a = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
+console.log(a[0][2])

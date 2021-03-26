@@ -31,3 +31,36 @@ var spiralOrder = function (matrix) {
 
 // 官方方法 法二
 
+// !法三 我自己写的 
+var spiralOrder = function (matrix) {
+    if (!matrix.length) return []
+    let row = matrix.length, col = matrix[0].length, res = []
+    let allNum = row * col
+
+    let i = 0, j = -1
+    while (res.length < allNum) {
+        while ((j < col - 1) && (matrix[i][j + 1] !== '-')) {
+            j = j + 1
+            res.push(matrix[i][j])
+            matrix[i][j] = '-'
+        }
+        while ((i < row - 1) && (matrix[i + 1][j] !== '-')) {
+            i = i + 1
+            res.push(matrix[i][j])
+            matrix[i][j] = '-'
+        }
+        while ((j > 0) && (matrix[i][j - 1] !== '-')) {
+            j = j - 1
+            res.push(matrix[i][j])
+            matrix[i][j] = '-'
+        }
+        while ((i > 0) && (matrix[i - 1][j] !== '-')) {
+            i = i - 1
+            res.push(matrix[i][j])
+            matrix[i][j] = '-'
+        }
+    }
+    return res
+};
+
+spiralOrder([[1, 2, 3], [4, 5, 6], [7, 8, 9]])
