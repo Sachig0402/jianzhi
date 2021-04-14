@@ -4,7 +4,7 @@ var copyRandomList = function (head) {
     let node = head
     while (node) {
         m.set(node, new Node(node.val))
-        // * 设置了一对键值对,键名是原始node节点,键值是node节点的val
+        // * 设置了一对键值对,键名是原始node节点,键值是复制的一个新节点
         node = node.next
     }
     node = head

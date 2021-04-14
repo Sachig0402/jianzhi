@@ -12,6 +12,11 @@
  * @param {TreeNode} root
  * @return {string}
  */
+function TreeNode(val) {
+    this.val = val;
+    this.left = this.right = null;
+}
+
 var serialize = function (root) {
     // if (!root) return []
     let stack = [root], res = []
@@ -27,6 +32,21 @@ var serialize = function (root) {
     }
     return res
 };
+
+
+let a = new TreeNode(1)
+let b = new TreeNode(2)
+let c = new TreeNode(3)
+let d = new TreeNode(4)
+let e = new TreeNode(5)
+
+a.left = b
+a.right = c
+c.left = d
+c.right = e
+
+console.log(serialize(a))
+
 
 /**
  * Decodes your encoded data to tree.

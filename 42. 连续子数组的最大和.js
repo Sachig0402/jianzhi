@@ -24,3 +24,14 @@ var maxSubArray = function (nums) {
     }
     return max
 };
+
+// ! 自己掌握后自己写的
+var maxSubArray = function (nums) {
+    let stack = [nums[0]]
+    let max = nums[0]
+    for (let i = 1; i < nums.length; i++) {
+        stack[i] = Math.max(nums[i], nums[i] + stack[i - 1])
+        if (stack[i] > max) max = stack[i]
+    }
+    return max
+};

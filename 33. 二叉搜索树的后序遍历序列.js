@@ -1,3 +1,4 @@
+// 看别人写的
 var verifyPostorder = function (postorder) {
     let len = postorder.length
     if (len < 2) return true
@@ -18,4 +19,35 @@ var verifyPostorder = function (postorder) {
     } else {
         return false
     }
+};
+
+// 自己写的
+var verifyPostorder = function (postorder) {
+    let len = postorder.length
+    if (len < 2) return true
+    let root = postorder[len - 1]
+
+    let i = 0
+    for (; i < len - 1; i++) {
+        if (postorder[i] > root) {
+            break
+        }
+    }
+
+    let left = postorder.slice(0, i)
+    let right = postorder.slice(i, len - 1)
+
+    //! var mark = right.every((value) => { return value > root })
+    // * 可以写上面这行,也可以写下面这几行
+    let mark = true
+    if (right.length) {
+        for (let j = 0; j < right.length; j++) {
+            if (right[j] < root) mark = false
+        }
+    }
+
+
+    if (!mark) return false
+
+    return verifyPostorder(left) && verifyPostorder(right)
 };

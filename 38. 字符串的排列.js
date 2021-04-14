@@ -1,5 +1,6 @@
 
 // 回溯 看了别人的
+// !重新看又不会了
 /**
  * @param {string} s
  * @return {string[]}
@@ -26,10 +27,10 @@ var permutation = function (s) {
 
             permutationCore(list, start + 1)
 
+            //* 再交换回来
             temp = list[start]
             list[start] = list[i]
             list[i] = temp
-
         }
     }
 
