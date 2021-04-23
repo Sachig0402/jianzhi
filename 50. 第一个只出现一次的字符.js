@@ -15,7 +15,7 @@ var firstUniqChar = function (s) {
         }
     }
 
-    for (let key of aMap.keys()) {//注意是aMap.keys(),别忘了括号()
+    for (let key of aMap.keys()) {//!注意是aMap.keys(),别忘了括号()
         if (aMap.get(key) == 1) {
             return key
         }

@@ -72,3 +72,26 @@ var kthLargest = function (root, k) {
 
     return res
 };
+
+// 或者先判断if
+var kthLargest = function (root, k) {
+    // if (!root) return null
+    let arr = [], count = 0, res = null
+    dfs(root)
+    return res
+
+    function dfs(root) {
+        if (root.right) {
+            dfs(root.right)
+        }
+        arr.push(root.val)
+        count++
+        if (count == k) {
+            res = root.val
+            return
+        }
+        if (root.left) {
+            dfs(root.left)
+        }
+    }
+};

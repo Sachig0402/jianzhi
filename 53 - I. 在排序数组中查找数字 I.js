@@ -36,3 +36,29 @@ var search = function (nums, target) {
     return last - first + 1
 
 };
+
+//! 第二次写的二分查找
+var search = function (nums, target) {
+    if (!nums.length) return 0
+    let left = 0, right = nums.length - 1
+    while (left <= right) {
+        let mid = Math.ceil((left + right) / 2)
+        if (nums[mid] >= target) {
+            right = mid - 1
+        } else {
+            left = mid + 1
+        }
+    }
+    let a = right + 1
+    left = 0, right = nums.length - 1
+    while (left <= right) {
+        let mid = Math.ceil((left + right) / 2)
+        if (nums[mid] <= target) {
+            left = mid + 1
+        } else {
+            right = mid - 1
+        }
+    }
+    let b = left - 1
+    return b - a + 1
+};

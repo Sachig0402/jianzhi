@@ -38,7 +38,7 @@ MedianFinder.prototype.findMedian = function () {
  */
 
 
-//  二 二分插入法
+// ! 二 二分插入法 
 /**
  * initialize your data structure here.
  */
@@ -59,6 +59,7 @@ MedianFinder.prototype.addNum = function (num) {
             let mid = Math.floor((left + right) / 2)
             if (this.data[mid] == num) {
                 this.data.splice(mid, 0, num)
+                return
             } else if (this.data[mid] < num) {
                 left = mid + 1
             } else {
@@ -91,3 +92,5 @@ MedianFinder.prototype.findMedian = function () {
  * obj.addNum(num)
  * var param_2 = obj.findMedian()
  */
+
+

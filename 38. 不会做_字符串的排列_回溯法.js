@@ -12,6 +12,10 @@ var permutation = function (s) {
     let list = s.split('')//注意 按xx分开是split
     let result = []
 
+    permutationCore(list, 0)
+
+    return result
+
     function permutationCore(list, start) {
         if (start == list.length) {
             result.push(list.join(''))
@@ -34,7 +38,5 @@ var permutation = function (s) {
         }
     }
 
-    permutationCore(list, 0)
 
-    return result
 };

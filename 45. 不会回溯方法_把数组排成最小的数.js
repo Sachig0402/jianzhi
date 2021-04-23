@@ -11,3 +11,11 @@ var minNumber = function (nums) {
     )
     return nums.join('')
 };
+
+//! 改进
+var minNumber = function (nums) {
+    nums.sort((a, b) => {
+        return ('' + a + b) - ('' + b + a)
+    })
+    return nums.join('')
+};

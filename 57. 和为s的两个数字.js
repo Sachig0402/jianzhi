@@ -4,7 +4,7 @@
  * @return {number[]}
  */
 
-//法二 最好的方法,其实可以不用二分查找,直接双指针
+//法二 最好的方法,其实可以省略二分查找,直接双指针
 var twoSum = function (nums, target) {
 
     // return [right, right]

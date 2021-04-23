@@ -3,13 +3,13 @@
  * @return {number[]}
  */
 // 法一 哈希表
-// 空间复杂度好像不满足
+// !空间复杂度好像不满足
 var singleNumbers = function (nums) {
     let aMap = new Map(), res = []
     for (let i of nums) {
         aMap[i] = (aMap[i] || 0) + 1 //数字第一次放入,该位置赋值为1,第二次就会变成2了,没有的位置为null
     }
-    for (let key in aMap) {//key是下标
+    for (let key in aMap) {//!key是键值对的键,for value of aMap是键值对的value
         if (aMap[key] == 1) {//aMap[key]的值可能是1,2,null
             res.push(key)
         }
@@ -40,6 +40,7 @@ var singleNumbers = function (nums) {
     nums.forEach((item) => { //将元素分组,这位为1的分一组,这位为0的分一组
         if ((item & mark) == 0) {//这位为0
             // !上面这行注意加括号!!不加括号就错了
+            //* 任何一位无论是0还是1,和0做与运算都得到它本身,即item和mark异或,除了这一位,其他位都是0
             b ^= item
         } else {//这位为1
             c ^= item

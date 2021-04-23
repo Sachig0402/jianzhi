@@ -54,7 +54,14 @@ var findContinuousSequence = function (target) {
     return res
 };
 
-// 法二 滑动窗口 别人的做法
+// ! 法二 滑动窗口 别人的做法
+/* 解题思路
+先把数分解9=1+8=2+7=3+6=4+5,按这种，找到可能组成正确结果的数组，根据数的结构，易知结果可能存在[1,2,3,4,5]中，不难发现数组最后一个数,如果target是偶数就是target/2,如果是奇数就是target/2取整加一，即Math.floor(target/2)+1 或采用二进制取整(target/2 | 0) + 1,再对找到的数组采用滑动窗口模型，找出答案。
+
+作者：minCoding
+链接：https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/solution/javascripthua-dong-chuang-kou-hen-rong-yi-li-jie-d/
+来源：力扣（LeetCode）
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。 */
 var findContinuousSequence = function (target) {
     let index = Math.floor(target / 2) + 1
     let sum = 0, temp = [], res = []

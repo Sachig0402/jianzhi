@@ -9,7 +9,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-// 时间复杂度 O(n)?因为全部遍历了一遍
+// ! 时间复杂度 O(n)?因为全部遍历了一遍,第二次自己做出来了
 var maxDepth = function (root) {
     if (!root) return 0
     return 1 + Math.max(maxDepth(root.left), maxDepth(root.right))
@@ -35,7 +35,7 @@ var maxDepth = function (root) {
 // maxDepth(a)
 
 
-// 法二 用栈,一次一次弹出
+// ! 法二 着重记一下 用栈,一次一次弹出
 var maxDepth = function (root) {
     if (!root) return 0
     let stack = [[root, 1]], res = 1

@@ -21,7 +21,7 @@ var reversePairs = function (nums) {
     // 将分割的两个数组归并排序
     function mergeNums(leftNums, rightNums) {
         let leftLen = leftNums.length, rightLen = rightNums.length, len = leftLen + rightLen
-        let arr = []
+        let arr = []//!用来排序成从小到大的,最后要返回这个
         for (let left = 0, right = 0, index = 0; index < len; index++) {
             if (left >= leftLen) {
                 arr[index] = rightNums[right]

@@ -10,7 +10,25 @@
  * @return {boolean}
  */
 
-// 法一 递归 深度优先遍历(自顶向下)
+// !自己想的出栈入栈,时间复杂度好像有点高
+var isBalanced = function (root) {
+    if (!root) return true
+    let stack = [root]
+    while (stack.length) {
+        let node = stack.shift()
+        if (Math.abs(cal(node.left) - cal(node.right)) > 1) return false
+        if (node.left) stack.push(node.left)
+        if (node.right) stack.push(node.right)
+    }
+    return true
+
+    function cal(node) {
+        if (!node) return 0
+        return 1 + Math.max(cal(node.left), cal(node.right))
+    }
+};
+
+// *法一 递归 深度优先遍历(自顶向下)
 var isBalanced = function (root) {
     if (!root) return true
     let left = depth(root.left), right = depth(root.right)
