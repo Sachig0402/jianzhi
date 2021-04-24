@@ -2,7 +2,7 @@
  * @param {number[]} a
  * @return {number[]}
  */
-// ! 别人的思路我默写 但是自己写得复杂了,left和right可以合在一个循环里写
+// ! 看后面那种方法.别人的思路我默写 但是自己写得复杂了,left和right可以合在一个循环里写
 var constructArr = function (a) {
     let left = [], right = [], b = []
     for (let i = 0; i < a.length; i++) {
@@ -34,6 +34,7 @@ var constructArr = function (a) {
 };
 
 // ! 别人的 其实就是上面的简化一下
+// * 动态规划,left数组是记录当前元素及左边所有元素之积,right数组是记录当前元素和右边所有元素之积
 var constructArr = function (a) {
     let left = [], right = [], b = []
     for (let i = 0; i < a.length; i++) {

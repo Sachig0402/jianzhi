@@ -48,13 +48,14 @@ var lowestCommonAncestor = function (root, p, q) {
 };
 
 
-// 法二 递归 别人的思路
+// ! 法二 递归 别人的思路
 var lowestCommonAncestor = function (root, p, q) {
-    if (!root || root == p || root == q) { //如果根节点为空,或根节点为要查找的p或q,就直接返回
+    if (!root || root == p || root == q) {
+        //!如果根节点为空null,或根节点为要查找的p或q,就直接返回
         return root
     }
     let left = lowestCommonAncestor(root.left, p, q), right = lowestCommonAncestor(root.right, p, q)
-    
+
     return left && right ? root : left || right
     // * 若左右子树都查到了,就返回这个根节点,若不是全查到了,左子树若查到了,就返回左子树返回的值,若左子树没查到,就返回右子树返回的值,当然也可能都没查到,left||right为null
 
@@ -67,7 +68,7 @@ var lowestCommonAncestor = function (root, p, q) {
     * 同理
     return root
     */
-    
+
 };
 
 

@@ -2,6 +2,24 @@
  * @param {number[]} prices
  * @return {number}
  */
+
+// ! 我第二遍做想到的
+var maxProfit = function (prices) {
+    let minArr = [prices[0]]//*用来记录当前位置之前的最小值
+    let min = prices[0]
+    let res = 0
+    for (let i = 1; i < prices.length; i++) {
+        if (prices[i] < min) {
+            min = prices[i]
+        }
+        if (prices[i] - min > res) {
+            res = prices[i] - min
+        }
+    }
+
+    return res
+};
+
 // 我想的 法一 时间效率不错 空间效率比较低
 var maxProfit = function (prices) {
     let dp = [prices[0]]//用来存这之前的prices的最小值

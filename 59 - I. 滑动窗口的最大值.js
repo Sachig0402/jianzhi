@@ -3,6 +3,18 @@
  * @param {number} k
  * @return {number[]}
  */
+// ! 有时间再看一下官方题解的方法三
+// * 一个很简单的方法,但时间复杂度应该挺高的
+var maxSlidingWindow = function (nums, k) {
+    if (!nums.length) return []
+    let res = []
+    for (let i = 0; i <= nums.length - k; i++) {
+        let arr = nums.slice(i, i + k)
+        res.push(Math.max(...arr))
+    }
+    return res
+};
+
 // 法一 暴力法 时间复杂度O(kn)
 var maxSlidingWindow = function (nums, k) {
     if (!nums.length) return []
@@ -20,18 +32,10 @@ var maxSlidingWindow = function (nums, k) {
     return arr
 };
 
-// 暴力法2 别人写的 这个更慢
-var maxSlidingWindow = function (nums, k) {
-    if (!nums.length) return []
-    let arr = []
-    for (let i = 0; i < nums.length - k + 1; i++) {
-        arr.push(Math.max(...nums.slice(i, i + k)))
-    }
-    return arr
-};
 
 // 法二 单调队列法
 // ! 官方解析的法二
+// 时间复杂度n,空间复杂度k
 // ! https://leetcode-cn.com/problems/sliding-window-maximum/solution/hua-dong-chuang-kou-zui-da-zhi-by-leetco-ki6m/
 var maxSlidingWindow = function (nums, k) {
     const n = nums.length;
@@ -39,7 +43,6 @@ var maxSlidingWindow = function (nums, k) {
     for (let i = 0; i < k; i++) {
         while (q.length && nums[i] >= nums[q[q.length - 1]]) {//*队列不空且新值比原队尾的值大
             // * q[x]记录的是nums的下标,所以上面nums[q[x]]是nums里的元素值
-            // * 用>号也可以,不一定用>=
             q.pop();//* 那么原来队尾的值就要弹出,while循环,相当于原队列中所有比新值小的都弹出
         }
         q.push(i);//*把新的i压入
@@ -48,10 +51,11 @@ var maxSlidingWindow = function (nums, k) {
 
     const ans = [nums[q[0]]];
     //*ans是记录每个窗口里最大值的数组,上面已经完成第一个窗口了,所以把nums[q[0]](即第一个窗口的最大值)压入
-    for (let i = k; i < n; i++) {//*开始操作后面的窗口
+    for (let i = k; i < n; i++) {//*开始操作后面的窗口,i指向的是指窗口最后一个元素的位置
         while (q.length && nums[i] >= nums[q[q.length - 1]]) {
             // * 用>号也可以,不一定用>=
             q.pop();//*与第一个窗口的操作类似
+            // !总是保持q队列的第一个元素就是当前窗口里的最大值
         }
         q.push(i);
         //*后面的操作是与第一个窗口不同的

@@ -5,6 +5,7 @@
  */
 // 法一
 var reverseLeftWords = function (s, n) {
+    n = n % (s.length)
     let left = s.slice(0, n), right = s.slice(n)
     return right.concat(left)
     // * return right + left//这个也行

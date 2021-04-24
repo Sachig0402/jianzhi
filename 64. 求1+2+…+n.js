@@ -2,10 +2,10 @@
  * @param {number} n
  * @return {number}
  */
-// 法一 我想的方法 时间效率还可以
+// ! 法一 我想的方法 时间效率还可以,
 var sumNums = function (n) {
-    if (n == 0) return 0
-    return n + sumNums(n - 1)
+    let res = n == 1 ? 1 : n + sumNums(n - 1)
+    return res
 };
 
 // 法二 把乘除法转换为加减法

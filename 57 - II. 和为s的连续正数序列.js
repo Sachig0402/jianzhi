@@ -68,13 +68,14 @@ var findContinuousSequence = function (target) {
     for (let i = 1; i <= index; i++) {
         temp.push(i)
         sum += i
-        while (sum > target) {
+        while (sum > target) {//!必须是while,不能是if
             // let a = temp.shift()
             // sum -= a
-            sum -= temp[0]
-            temp.shift()
+            /* sum -= temp[0]
+            temp.shift() */
+            sum -= queue.shift()
         }
-        if ((sum === target) && (temp.length >= 2)) {
+        if ((sum === target) && (temp.length >= 2)) {//不写temp.length >= 2也能通过
             res.push([...temp])
         }
     }
